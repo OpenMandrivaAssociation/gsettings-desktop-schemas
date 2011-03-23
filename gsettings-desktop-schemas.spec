@@ -1,5 +1,5 @@
 %define name gsettings-desktop-schemas
-%define version 0.0.1
+%define version 2.91.92
 %define release %mkrel 1
 
 Summary: Shared GSettings schemas for the desktop
@@ -38,19 +38,16 @@ various components of a desktop.
 rm -rf %{buildroot}
 %makeinstall_std pkgconfigdir=%_datadir/pkgconfig
 
+%find_lang %name
+
 %clean
 rm -rf %{buildroot}
 
-%files
+%files -f %{name}.lang
 %defattr(-,root,root)
-%doc README NEWS  AUTHORS
-%_datadir/glib-2.0/schemas/org.gnome.desktop.background.gschema.xml
-%_datadir/glib-2.0/schemas/org.gnome.desktop.default-applications.gschema.xml
-%_datadir/glib-2.0/schemas/org.gnome.desktop.enums.xml
-%_datadir/glib-2.0/schemas/org.gnome.desktop.interface.gschema.xml
-%_datadir/glib-2.0/schemas/org.gnome.desktop.lockdown.gschema.xml
-%_datadir/glib-2.0/schemas/org.gnome.desktop.url-handlers.gschema.xml
-%_datadir/glib-2.0/schemas/org.gnome.system.proxy.gschema.xml
+%doc README NEWS AUTHORS
+%_datadir/GConf/gsettings/gsettings-desktop-schemas.convert
+%_datadir/glib-2.0/schemas/*.xml
 
 %files devel
 %defattr(-,root,root)
