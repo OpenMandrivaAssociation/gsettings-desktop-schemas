@@ -1,5 +1,5 @@
 %define name gsettings-desktop-schemas
-%define version 3.0.0
+%define version 3.0.1
 %define release %mkrel 1
 
 Summary: Shared GSettings schemas for the desktop
