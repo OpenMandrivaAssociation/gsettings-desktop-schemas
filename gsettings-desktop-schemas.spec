@@ -1,16 +1,12 @@
-%define name gsettings-desktop-schemas
-%define version 3.0.1
-%define release %mkrel 1
-
 Summary: Shared GSettings schemas for the desktop
-Name: %{name}
-Version: %{version}
-Release: %{release}
-Source0: http://ftp.gnome.org/pub/GNOME/sources/gsettings-desktop-schemas/%{name}-%{version}.tar.bz2
+Name: gsettings-desktop-schemas
+Version: 3.2.0
+Release: 1
+Source0: http://ftp.gnome.org/pub/GNOME/sources/gsettings-desktop-schemas/%{name}-%{version}.tar.xz
 License: GPLv2+
 Group: Graphical desktop/GNOME
 Url: http://gnome.org/
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+
 BuildRequires: glib2-devel >= 2.25
 BuildRequires: intltool
 BuildArch: noarch
@@ -40,17 +36,12 @@ rm -rf %{buildroot}
 
 %find_lang %name
 
-%clean
-rm -rf %{buildroot}
-
 %files -f %{name}.lang
-%defattr(-,root,root)
 %doc README NEWS AUTHORS
 %_datadir/GConf/gsettings/gsettings-desktop-schemas.convert
 %_datadir/glib-2.0/schemas/*.xml
 
 %files devel
-%defattr(-,root,root)
 %doc ChangeLog HACKING MAINTAINERS
 %_includedir/%name
 %_datadir/pkgconfig/%name.pc
