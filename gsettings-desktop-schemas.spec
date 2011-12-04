@@ -1,15 +1,16 @@
 Summary: Shared GSettings schemas for the desktop
 Name: gsettings-desktop-schemas
 Version: 3.2.0
-Release: 1
-Source0: http://ftp.gnome.org/pub/GNOME/sources/gsettings-desktop-schemas/%{name}-%{version}.tar.xz
+Release: 2
 License: GPLv2+
 Group: Graphical desktop/GNOME
 Url: http://gnome.org/
-
-BuildRequires: glib2-devel >= 2.25
-BuildRequires: intltool
+Source0: http://ftp.gnome.org/pub/GNOME/sources/gsettings-desktop-schemas/%{name}-%{version}.tar.xz
 BuildArch: noarch
+
+BuildRequires: intltool
+BuildRequires: pkgconfig(glib-2.0) >= 2.25
+Requires:	dconf
 
 %description
 This contains a collection of GSettings schemas for settings shared by
