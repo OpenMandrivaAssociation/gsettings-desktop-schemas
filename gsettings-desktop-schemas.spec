@@ -53,6 +53,7 @@ various components of a desktop.
 %files -f %{name}.lang
 %doc README NEWS AUTHORS
 %{_datadir}/GConf/gsettings/gsettings-desktop-schemas.convert
+%{_datadir}/GConf/gsettings/wm-schemas.convert
 %{_datadir}/glib-2.0/schemas/*.xml
 
 %files -n %{girname}
