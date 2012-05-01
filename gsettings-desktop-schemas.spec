@@ -6,12 +6,11 @@
 Summary: Shared GSettings schemas for the desktop
 Name: gsettings-desktop-schemas
 Version: 3.4.1
-Release: 1
+Release: 2
 License: GPLv2+
 Group: Graphical desktop/GNOME
 Url: http://gnome.org/
 Source0: http://ftp.gnome.org/pub/GNOME/sources/gsettings-desktop-schemas/%{url_ver}/%{name}-%{version}.tar.xz
-BuildArch: noarch
 
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(glib-2.0)
@@ -25,6 +24,9 @@ various components of a desktop.
 %package -n %{girname}
 Summary:	GObject Introspection interface description for %{name}
 Group:		System/Libraries
+%ifarch %ix86
+Obsoletes:	lib64gsettings-desktop-schemas-gir3.0
+%endif
 
 %description -n %{girname}
 GObject Introspection interface description for %{name}.
