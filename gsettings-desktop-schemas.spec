@@ -1,39 +1,28 @@
-%define url_ver	%(echo %{version}|cut -d. -f1,2)
-
-%define api	3.0
-%define girname	%mklibname %{name}-gir %{api}
+%define name gsettings-desktop-schemas
+%define version 3.6.1
+%define release %mkrel 1
 
 Summary: Shared GSettings schemas for the desktop
-Name: gsettings-desktop-schemas
-Version: 3.4.2
-Release: 1
+Name: %{name}
+Version: %{version}
+Release: %{release}
+Source0: http://ftp.gnome.org/pub/GNOME/sources/gsettings-desktop-schemas/3.6/%{name}-%{version}.tar.xz
 License: GPLv2+
 Group: Graphical desktop/GNOME
 Url: http://gnome.org/
-Source0: http://ftp.gnome.org/pub/GNOME/sources/gsettings-desktop-schemas/%{url_ver}/%{name}-%{version}.tar.xz
-
-BuildRequires:	intltool
-BuildRequires:	pkgconfig(glib-2.0)
-BuildRequires:	pkgconfig(gobject-introspection-1.0)
-Requires:	dconf
+BuildRequires: pkgconfig(glib-2.0) >= 2.25
+BuildRequires: intltool
+BuildRequires: libgirepository-devel
+BuildRequires: gobject-introspection
+BuildArch: noarch
 
 %description
 This contains a collection of GSettings schemas for settings shared by
 various components of a desktop.
 
-%package -n %{girname}
-Summary:	GObject Introspection interface description for %{name}
-Group:		System/Libraries
-%ifarch %ix86
-Obsoletes:	lib64gsettings-desktop-schemas-gir3.0
-%endif
-
-%description -n %{girname}
-GObject Introspection interface description for %{name}.
-
 %package devel
 Group: Development/C
-Summary: Development files for %{name}
+Summary: Development files for %name
 
 %description devel
 This contains a collection of GSettings schemas for settings shared by
@@ -43,27 +32,24 @@ various components of a desktop.
 %setup -q
 
 %build
-%configure2_5x \
-	--enable-introspection=yes
+autoreconf -fi
+%configure2_5x
 %make
 
 %install
-%makeinstall_std pkgconfigdir=%{_datadir}/pkgconfig
+%makeinstall_std pkgconfigdir=%_datadir/pkgconfig
 
-%find_lang %{name}
+%find_lang %name
 
 %files -f %{name}.lang
 %doc README NEWS AUTHORS
-%{_datadir}/GConf/gsettings/gsettings-desktop-schemas.convert
-%{_datadir}/GConf/gsettings/wm-schemas.convert
-%{_datadir}/glib-2.0/schemas/*.xml
-
-%files -n %{girname}
-%{_libdir}/girepository-1.0/GDesktopEnums-%{api}.typelib
+%_datadir/GConf/gsettings/gsettings-desktop-schemas.convert
+%_datadir/GConf/gsettings/wm-schemas.convert
+%_libdir/girepository-1.0/GDesktopEnums-3.0.typelib
+%_datadir/glib-2.0/schemas/*.xml
+%_datadir/gir-1.0/GDesktopEnums-3.0.gir
 
 %files devel
 %doc ChangeLog HACKING MAINTAINERS
-%{_includedir}/%{name}
-%{_datadir}/pkgconfig/%{name}.pc
-%{_datadir}/gir-1.0/GDesktopEnums-%{api}.gir
-
+%_includedir/%name
+%_datadir/pkgconfig/%name.pc
