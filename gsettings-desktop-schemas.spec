@@ -1,12 +1,12 @@
 %define name gsettings-desktop-schemas
-%define version 3.6.1
-%define release %mkrel 1
+%define version 3.7.4
+%define release 1
 
 Summary: Shared GSettings schemas for the desktop
 Name: %{name}
 Version: %{version}
 Release: %{release}
-Source0: http://ftp.gnome.org/pub/GNOME/sources/gsettings-desktop-schemas/3.6/%{name}-%{version}.tar.xz
+Source0: http://ftp.gnome.org/pub/GNOME/sources/gsettings-desktop-schemas/3.7/%{name}-%{version}.tar.xz
 License: GPLv2+
 Group: Graphical desktop/GNOME
 Url: http://gnome.org/

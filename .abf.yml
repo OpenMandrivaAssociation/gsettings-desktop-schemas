@@ -1,3 +1,4 @@
----
-sources:
+removed_sources:
   gsettings-desktop-schemas-3.6.1.tar.xz: a86c493fa86984d282e62a087b7233ed429f7e89
+sources:
+  gsettings-desktop-schemas-3.7.4.tar.xz: 53bb0315ed9d4332a14e96b41915846b86b474aa
