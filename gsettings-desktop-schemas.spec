@@ -3,14 +3,14 @@
 %define api	3.0
 %define girname	%mklibname %{name}-gir %{api}
 
-Summary: Shared GSettings schemas for the desktop
-Name: gsettings-desktop-schemas
-Version: 3.4.2
-Release: 1
-License: GPLv2+
-Group: Graphical desktop/GNOME
-Url: http://gnome.org/
-Source0: http://ftp.gnome.org/pub/GNOME/sources/gsettings-desktop-schemas/%{url_ver}/%{name}-%{version}.tar.xz
+Summary:	Shared GSettings schemas for the desktop
+Name:		gsettings-desktop-schemas
+Version:	3.6.1
+Release:	1
+License:	GPLv2+
+Group:		Graphical desktop/GNOME
+Url:		http://gnome.org/
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gsettings-desktop-schemas/%{url_ver}/%{name}-%{version}.tar.xz
 
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(glib-2.0)
@@ -24,16 +24,13 @@ various components of a desktop.
 %package -n %{girname}
 Summary:	GObject Introspection interface description for %{name}
 Group:		System/Libraries
-%ifarch %ix86
-Obsoletes:	lib64gsettings-desktop-schemas-gir3.0
-%endif
 
 %description -n %{girname}
 GObject Introspection interface description for %{name}.
 
 %package devel
-Group: Development/C
-Summary: Development files for %{name}
+Group:		Development/C
+Summary:	Development files for %{name}
 
 %description devel
 This contains a collection of GSettings schemas for settings shared by
