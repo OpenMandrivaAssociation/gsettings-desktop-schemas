@@ -2,10 +2,11 @@
 
 %define api	3.0
 %define girname	%mklibname %{name}-gir %{api}
+%define	debug_package	%nil
 
 Summary:	Shared GSettings schemas for the desktop
 Name:		gsettings-desktop-schemas
-Version:	3.6.1
+Version:	3.8.2
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
@@ -40,6 +41,7 @@ various components of a desktop.
 %setup -q
 
 %build
+%setup_compile_flags
 %configure2_5x \
 	--enable-introspection=yes
 %make
