@@ -1,13 +1,13 @@
+%define	debug_package	%nil
 %define url_ver	%(echo %{version}|cut -d. -f1,2)
 
 %define api	3.0
 %define girname	%mklibname %{name}-gir %{api}
-%define	debug_package	%nil
 
 Summary:	Shared GSettings schemas for the desktop
 Name:		gsettings-desktop-schemas
 Version:	3.8.2
-Release:	5
+Release:	6
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://gnome.org/
@@ -17,6 +17,8 @@ BuildRequires:	intltool
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 Requires:	dconf
+# MD needed for glib-compile-schemas
+Requires:	glib2.0-common
 
 %description
 This contains a collection of GSettings schemas for settings shared by
