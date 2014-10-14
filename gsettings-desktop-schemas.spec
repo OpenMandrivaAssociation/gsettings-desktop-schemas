@@ -6,8 +6,8 @@
 
 Summary:	Shared GSettings schemas for the desktop
 Name:		gsettings-desktop-schemas
-Version:	3.8.2
-Release:	8
+Version:	3.14.0
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://gnome.org/
@@ -44,7 +44,7 @@ various components of a desktop.
 
 %build
 %setup_compile_flags
-%configure2_5x \
+%configure \
 	--enable-introspection=yes
 %make
 
