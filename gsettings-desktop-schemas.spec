@@ -6,7 +6,7 @@
 
 Summary:	Shared GSettings schemas for the desktop
 Name:		gsettings-desktop-schemas
-Version:	3.31.91
+Version:	3.32.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
@@ -14,6 +14,7 @@ Url:		http://gnome.org/
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gsettings-desktop-schemas/%{url_ver}/%{name}-%{version}.tar.xz
 
 BuildRequires:	intltool
+BuildRequires:	meson
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 Requires:	dconf
@@ -43,14 +44,11 @@ various components of a desktop.
 %setup -q
 
 %build
-intltoolize --force
-%setup_compile_flags
-%configure \
-	--enable-introspection=yes
-%make
+%meson
+%meson_build
 
 %install
-%makeinstall_std pkgconfigdir=%{_datadir}/pkgconfig
+%meson_install
 
 %find_lang %{name}
 
