@@ -6,11 +6,11 @@
 
 Summary:	Shared GSettings schemas for the desktop
 Name:		gsettings-desktop-schemas
-Version:	45.0
+Version:	46.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
-Url:		http://gnome.org/
+Url:		https://gnome.org/
 Source0:	https://ftp.gnome.org/pub/GNOME/sources/gsettings-desktop-schemas/%{url_ver}/%{name}-%{version}.tar.xz
 
 BuildRequires:	intltool
