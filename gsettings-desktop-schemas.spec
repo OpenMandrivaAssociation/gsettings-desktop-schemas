@@ -6,7 +6,7 @@
 
 Summary:	Shared GSettings schemas for the desktop
 Name:		gsettings-desktop-schemas
-Version:	47
+Version:	47.1
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
