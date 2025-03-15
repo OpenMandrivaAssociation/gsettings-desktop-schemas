@@ -6,7 +6,7 @@
 
 Summary:	Shared GSettings schemas for the desktop
 Name:		gsettings-desktop-schemas
-Version:	47.1
+Version:	48.rc
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
@@ -20,6 +20,12 @@ BuildRequires:	pkgconfig(gobject-introspection-1.0)
 Requires:	dconf
 # MD needed for glib-compile-schemas
 Requires:	glib2.0-common
+# New dafault fonts from gnome 48
+Requires: adwaita-fonts
+# Keep older fonts as fallvack
+Requires: abattis-cantarell-fonts
+# Used by gnome-terminal, lets make sure it is pulled.
+Requires: adobe-source-code-pro-fonts
 
 %description
 This contains a collection of GSettings schemas for settings shared by
