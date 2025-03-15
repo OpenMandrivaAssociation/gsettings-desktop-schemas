@@ -17,6 +17,7 @@ BuildRequires:	intltool
 BuildRequires:	meson
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
+Requires: %{girname} = %{EVRD}
 Requires:	dconf
 # MD needed for glib-compile-schemas
 Requires:	glib2.0-common
@@ -41,13 +42,14 @@ GObject Introspection interface description for %{name}.
 %package devel
 Group:		Development/C
 Summary:	Development files for %{name}
+Requires: %{name} = %{EVRD}
 
 %description devel
 This contains a collection of GSettings schemas for settings shared by
 various components of a desktop.
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
 %meson
